@@ -23,12 +23,13 @@ class _$GRecipesByCursorVarsSerializer
   Iterable<Object> serialize(
       Serializers serializers, GRecipesByCursorVars object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'cursor',
-      serializers.serialize(object.cursor,
-          specifiedType: const FullType(String)),
-    ];
-
+    final result = <Object>[];
+    if (object.cursor != null) {
+      result
+        ..add('cursor')
+        ..add(serializers.serialize(object.cursor,
+            specifiedType: const FullType(_i1.GCursor)));
+    }
     return result;
   }
 
@@ -45,8 +46,8 @@ class _$GRecipesByCursorVarsSerializer
       final dynamic value = iterator.current;
       switch (key) {
         case 'cursor':
-          result.cursor = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+          result.cursor.replace(serializers.deserialize(value,
+              specifiedType: const FullType(_i1.GCursor)) as _i1.GCursor);
           break;
       }
     }
@@ -57,17 +58,13 @@ class _$GRecipesByCursorVarsSerializer
 
 class _$GRecipesByCursorVars extends GRecipesByCursorVars {
   @override
-  final String cursor;
+  final _i1.GCursor cursor;
 
   factory _$GRecipesByCursorVars(
           [void Function(GRecipesByCursorVarsBuilder) updates]) =>
       (new GRecipesByCursorVarsBuilder()..update(updates)).build();
 
-  _$GRecipesByCursorVars._({this.cursor}) : super._() {
-    if (cursor == null) {
-      throw new BuiltValueNullFieldError('GRecipesByCursorVars', 'cursor');
-    }
-  }
+  _$GRecipesByCursorVars._({this.cursor}) : super._();
 
   @override
   GRecipesByCursorVars rebuild(
@@ -101,15 +98,15 @@ class GRecipesByCursorVarsBuilder
     implements Builder<GRecipesByCursorVars, GRecipesByCursorVarsBuilder> {
   _$GRecipesByCursorVars _$v;
 
-  String _cursor;
-  String get cursor => _$this._cursor;
-  set cursor(String cursor) => _$this._cursor = cursor;
+  _i1.GCursorBuilder _cursor;
+  _i1.GCursorBuilder get cursor => _$this._cursor ??= new _i1.GCursorBuilder();
+  set cursor(_i1.GCursorBuilder cursor) => _$this._cursor = cursor;
 
   GRecipesByCursorVarsBuilder();
 
   GRecipesByCursorVarsBuilder get _$this {
     if (_$v != null) {
-      _cursor = _$v.cursor;
+      _cursor = _$v.cursor?.toBuilder();
       _$v = null;
     }
     return this;
@@ -130,7 +127,20 @@ class GRecipesByCursorVarsBuilder
 
   @override
   _$GRecipesByCursorVars build() {
-    final _$result = _$v ?? new _$GRecipesByCursorVars._(cursor: cursor);
+    _$GRecipesByCursorVars _$result;
+    try {
+      _$result = _$v ?? new _$GRecipesByCursorVars._(cursor: _cursor?.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'cursor';
+        _cursor?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'GRecipesByCursorVars', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

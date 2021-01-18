@@ -1,4 +1,4 @@
-query RecipesByCursor($cursor: String!) {
+query RecipesByCursor($cursor: Cursor) {
   recipes(before: $cursor) {
     nodes {
       contributorId

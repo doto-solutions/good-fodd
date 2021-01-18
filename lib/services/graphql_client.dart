@@ -4,6 +4,11 @@ import 'package:ferry_hive_store/ferry_hive_store.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
+export '../src/graphql/operations.req.gql.dart';
+export '../src/graphql/operations.data.gql.dart';
+export '../src/graphql/operations.var.gql.dart';
+export '../src/graphql/schema.schema.gql.dart';
+
 Future<Client> initClient() async {
   await Hive.initFlutter();
 
@@ -15,7 +20,7 @@ Future<Client> initClient() async {
 
   final cache = Cache(store: store);
 
-  final link = HttpLink('http://localhost:8080/graphql');
+  final link = HttpLink('http://10.0.2.2:8080/graphql');
 
   final client = Client(
     link: link,
