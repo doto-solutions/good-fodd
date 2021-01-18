@@ -1,0 +1,18 @@
+query RecipesByCursor($cursor: String!) {
+  recipes(before: $cursor) {
+    nodes {
+      contributorId
+      description
+      id
+      ingredients
+      minutes
+      name
+      numberOfIngredients
+      numberOfSteps
+      nutrition
+      steps
+      submitted
+      tags
+    }
+  }
+}
