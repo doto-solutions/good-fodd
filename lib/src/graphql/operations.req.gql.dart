@@ -55,3 +55,45 @@ abstract class GRecipesByCursorReq
   static GRecipesByCursorReq fromJson(Map<String, dynamic> json) =>
       _i6.serializers.deserializeWith(GRecipesByCursorReq.serializer, json);
 }
+
+abstract class GRecipesReq
+    implements
+        Built<GRecipesReq, GRecipesReqBuilder>,
+        _i1.OperationRequest<_i2.GRecipesData, _i3.GRecipesVars> {
+  GRecipesReq._();
+
+  factory GRecipesReq([Function(GRecipesReqBuilder b) updates]) = _$GRecipesReq;
+
+  static void _initializeBuilder(GRecipesReqBuilder b) => b
+    ..operation =
+        _i4.Operation(document: _i5.document, operationName: 'Recipes')
+    ..executeOnListen = true;
+  _i3.GRecipesVars get vars;
+  _i4.Operation get operation;
+  _i4.Request get execRequest =>
+      _i4.Request(operation: operation, variables: vars.toJson());
+  @nullable
+  String get requestId;
+  @nullable
+  @BuiltValueField(serialize: false)
+  _i2.GRecipesData Function(_i2.GRecipesData, _i2.GRecipesData)
+      get updateResult;
+  @nullable
+  _i2.GRecipesData get optimisticResponse;
+  @nullable
+  String get updateCacheHandlerKey;
+  @nullable
+  Map<String, dynamic> get updateCacheHandlerContext;
+  @nullable
+  _i1.FetchPolicy get fetchPolicy;
+  @nullable
+  bool get executeOnListen;
+  @override
+  _i2.GRecipesData parseData(Map<String, dynamic> json) =>
+      _i2.GRecipesData.fromJson(json);
+  static Serializer<GRecipesReq> get serializer => _$gRecipesReqSerializer;
+  Map<String, dynamic> toJson() =>
+      _i6.serializers.serializeWith(GRecipesReq.serializer, this);
+  static GRecipesReq fromJson(Map<String, dynamic> json) =>
+      _i6.serializers.deserializeWith(GRecipesReq.serializer, json);
+}

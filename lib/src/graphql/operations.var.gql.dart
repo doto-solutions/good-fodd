@@ -2,8 +2,7 @@
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:good_fodd/src/graphql/schema.schema.gql.dart' as _i1;
-import 'package:good_fodd/src/graphql/serializers.gql.dart' as _i2;
+import 'package:good_fodd/src/graphql/serializers.gql.dart' as _i1;
 
 part 'operations.var.gql.g.dart';
 
@@ -15,12 +14,25 @@ abstract class GRecipesByCursorVars
           [Function(GRecipesByCursorVarsBuilder b) updates]) =
       _$GRecipesByCursorVars;
 
-  @nullable
-  _i1.GCursor get cursor;
+  int get first;
   static Serializer<GRecipesByCursorVars> get serializer =>
       _$gRecipesByCursorVarsSerializer;
   Map<String, dynamic> toJson() =>
-      _i2.serializers.serializeWith(GRecipesByCursorVars.serializer, this);
+      _i1.serializers.serializeWith(GRecipesByCursorVars.serializer, this);
   static GRecipesByCursorVars fromJson(Map<String, dynamic> json) =>
-      _i2.serializers.deserializeWith(GRecipesByCursorVars.serializer, json);
+      _i1.serializers.deserializeWith(GRecipesByCursorVars.serializer, json);
+}
+
+abstract class GRecipesVars
+    implements Built<GRecipesVars, GRecipesVarsBuilder> {
+  GRecipesVars._();
+
+  factory GRecipesVars([Function(GRecipesVarsBuilder b) updates]) =
+      _$GRecipesVars;
+
+  static Serializer<GRecipesVars> get serializer => _$gRecipesVarsSerializer;
+  Map<String, dynamic> toJson() =>
+      _i1.serializers.serializeWith(GRecipesVars.serializer, this);
+  static GRecipesVars fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(GRecipesVars.serializer, json);
 }

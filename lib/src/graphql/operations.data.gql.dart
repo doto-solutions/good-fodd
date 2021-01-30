@@ -101,3 +101,90 @@ abstract class GRecipesByCursorData_recipes_nodes
       _i1.serializers
           .deserializeWith(GRecipesByCursorData_recipes_nodes.serializer, json);
 }
+
+abstract class GRecipesData
+    implements Built<GRecipesData, GRecipesDataBuilder> {
+  GRecipesData._();
+
+  factory GRecipesData([Function(GRecipesDataBuilder b) updates]) =
+      _$GRecipesData;
+
+  static void _initializeBuilder(GRecipesDataBuilder b) =>
+      b..G__typename = 'Query';
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  @nullable
+  GRecipesData_recipes get recipes;
+  static Serializer<GRecipesData> get serializer => _$gRecipesDataSerializer;
+  Map<String, dynamic> toJson() =>
+      _i1.serializers.serializeWith(GRecipesData.serializer, this);
+  static GRecipesData fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(GRecipesData.serializer, json);
+}
+
+abstract class GRecipesData_recipes
+    implements Built<GRecipesData_recipes, GRecipesData_recipesBuilder> {
+  GRecipesData_recipes._();
+
+  factory GRecipesData_recipes(
+          [Function(GRecipesData_recipesBuilder b) updates]) =
+      _$GRecipesData_recipes;
+
+  static void _initializeBuilder(GRecipesData_recipesBuilder b) =>
+      b..G__typename = 'RecipesConnection';
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  BuiltList<GRecipesData_recipes_nodes> get nodes;
+  static Serializer<GRecipesData_recipes> get serializer =>
+      _$gRecipesDataRecipesSerializer;
+  Map<String, dynamic> toJson() =>
+      _i1.serializers.serializeWith(GRecipesData_recipes.serializer, this);
+  static GRecipesData_recipes fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(GRecipesData_recipes.serializer, json);
+}
+
+abstract class GRecipesData_recipes_nodes
+    implements
+        Built<GRecipesData_recipes_nodes, GRecipesData_recipes_nodesBuilder> {
+  GRecipesData_recipes_nodes._();
+
+  factory GRecipesData_recipes_nodes(
+          [Function(GRecipesData_recipes_nodesBuilder b) updates]) =
+      _$GRecipesData_recipes_nodes;
+
+  static void _initializeBuilder(GRecipesData_recipes_nodesBuilder b) =>
+      b..G__typename = 'Recipe';
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  @nullable
+  _i2.GBigInt get contributorId;
+  @nullable
+  String get description;
+  @nullable
+  _i2.GBigInt get id;
+  @nullable
+  BuiltList<String> get ingredients;
+  @nullable
+  _i2.GBigInt get minutes;
+  @nullable
+  String get name;
+  @nullable
+  _i2.GBigInt get numberOfIngredients;
+  @nullable
+  _i2.GBigInt get numberOfSteps;
+  @nullable
+  BuiltList<int> get nutrition;
+  @nullable
+  BuiltList<String> get steps;
+  @nullable
+  _i2.GDatetime get submitted;
+  @nullable
+  BuiltList<String> get tags;
+  static Serializer<GRecipesData_recipes_nodes> get serializer =>
+      _$gRecipesDataRecipesNodesSerializer;
+  Map<String, dynamic> toJson() => _i1.serializers
+      .serializeWith(GRecipesData_recipes_nodes.serializer, this);
+  static GRecipesData_recipes_nodes fromJson(Map<String, dynamic> json) =>
+      _i1.serializers
+          .deserializeWith(GRecipesData_recipes_nodes.serializer, json);
+}

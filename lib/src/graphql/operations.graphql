@@ -1,5 +1,44 @@
-query RecipesByCursor($cursor: Cursor) {
-  recipes(before: $cursor) {
+# query RecipesByCursor($cursor: Cursor) {
+#   recipes(before: $cursor) {
+#     nodes {
+#       contributorId
+#       description
+#       id
+#       ingredients
+#       minutes
+#       name
+#       numberOfIngredients
+#       numberOfSteps
+#       nutrition
+#       steps
+#       submitted
+#       tags
+#     }
+#   }
+# }
+query RecipesByCursor($first: Int!) {
+  recipes(orderBy: NATURAL, first: 10) {
+    __typename
+    nodes {
+      __typename
+      contributorId
+      description
+      id
+      ingredients
+      minutes
+      name
+      numberOfIngredients
+      numberOfSteps
+      nutrition
+      steps
+      submitted
+      tags
+    }
+  }
+}
+
+query Recipes {
+  recipes(first: 10) {
     nodes {
       contributorId
       description

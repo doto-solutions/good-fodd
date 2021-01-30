@@ -20,7 +20,7 @@ Future<Client> initClient() async {
 
   final cache = Cache(store: store);
 
-  final link = HttpLink('http://10.0.2.2:8080/graphql');
+  final link = HttpLink('http://127.0.0.1:8081/graphql');
 
   final client = Client(
     link: link,
